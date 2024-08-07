@@ -1,0 +1,22 @@
+page-feedback .item-md.item-block .item-inner {
+  border: 0px;
+}
+
+page-feedback .item-md.item-toggle ion-label {
+  text-align: right;
+}
+
+page-feedback .SpnFeedbackValue {
+  margin: auto;
+  margin-left: 0px;
+  padding: 6px;
+  border-radius: 5px;
+  background: gray;
+  color: white;
+  font-weight: bold;
+}
+
+page-feedback .item-input .label-md, page-feedback .item-select .label-md, page-feedback .item-datetime .label-md {
+  color: black;
+}
+/*# sourceMappingURL=feedback.css.map */

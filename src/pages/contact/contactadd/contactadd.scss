@@ -1,0 +1,26 @@
+page-contactadd {
+    .toolbar-background-md {
+        background:  #023573;
+    }
+    .toolbar-title-md{
+        color: white;
+        font-size: medium;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .text-input-md{
+        margin:0;
+    }
+
+    .ClsLabelTxt{
+        font-size:14px;
+        font-weight: 500;
+        color:#B2BEB5;
+    }
+    .select-md .select-icon {
+        position: relative;
+        width: 20px !important;
+        height: 19px;
+      }
+
+}

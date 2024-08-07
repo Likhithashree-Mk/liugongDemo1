@@ -1,0 +1,30 @@
+page-addressadd {
+    .toolbar-background-md {
+        background:  #023573;
+    }
+    .toolbar-title-md{
+        color: white;
+        font-size: medium;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .ClsLblTxt{
+        padding-left: 20px;
+        font-weight: 500;
+        color:#B2BEB5
+    }  
+    .item-md {
+        padding-left: 19px !important;
+    }
+    .text-input-md {
+        margin: 4px 0px !important;
+    }
+    .select-md {
+        padding: 15px 8px 0px 17px !important;
+      }
+      .select-md .select-icon {
+        position: relative;
+        width: 26px;
+        height: 19px;
+      }
+}

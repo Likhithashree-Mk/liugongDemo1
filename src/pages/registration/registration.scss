@@ -1,0 +1,74 @@
+page-registration {
+
+    .button-inner {
+        justify-content: center !important;
+    }
+
+    #DivParent {
+        height: 100vh;
+        // width: 100%;
+        // background-image: url("../assets/imgs/RegisterBG10.png");
+        // background-size: 100% 100%;
+        // background-repeat: no-repeat;
+    }
+
+    #DivregisterForm {
+        // border: 1px solid gray;
+        position: absolute;
+        width: 68%;
+        bottom: 3%;
+        left: 16%;
+        border-radius: 15px;
+        box-shadow: 1px 1px 5px 3px lightgray;
+        background: white;
+    }
+
+    .input {
+        border-bottom: 2px solid lightgray;
+    }
+
+    #SpnRegistration {
+        display: block;
+        text-align: center;
+        font-size: 5vw;
+        color: #4c565a;
+        font-weight: bold;
+        margin-top: 5%;
+    }
+
+    .item-input-has-focus .label-md[stacked],
+    .input-has-focus .label-md[stacked],
+    .item-input-has-focus .label-md[floating],
+    .input-has-focus .label-md[floating] {
+        color: #4c565a;
+    }
+
+    .list-md .item-input.item-input-has-focus:last-child,
+    .list-md .item-input.input-has-focus:last-child {
+        border: 0px !important;
+    }
+
+    .list-md .item-input:last-child {
+        border: 0px;
+    }
+
+    .BtnRegisterPopup {
+        background: #4c565a !important;
+        color: white !important;
+        width: 100% !important;
+    }
+
+    .alert-button {
+        width: 100% !important;
+    }
+
+    .scroll-content {
+        padding-bottom: 0px !important;
+        overflow-y: hidden !important;
+    }
+
+}
+
+// .BtnOnePopup{
+//     background: #f36e20 !important;
+// }

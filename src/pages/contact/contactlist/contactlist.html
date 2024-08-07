@@ -1,0 +1,69 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid style="padding:0px;background: white;">
+    <ion-row style="padding:0px;">
+      <ion-col col-10>
+        <ion-searchbar (ionInput)="ListCount($event)" [(ngModel)]="CPSrchText" placeholder="Enter Person Name"
+          style="padding: 0px;"></ion-searchbar>
+      </ion-col>
+      <ion-col col style="display: flex;">
+        <span style="margin: auto;font-size: 12px;color: #4c565a;font-weight: bold;">Count:
+          {{ContactList.length}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-list> -->
+  <div style="height: 77.7vh; overflow-y: scroll;box-shadow: 1px 1px 1px 3px lightgray;margin-top: 3px;"
+      >
+      <ion-list *ngFor="let cl of ContactList">
+        <ion-card  (click)="SelectedContactName(cl)" style="padding:10px">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                {{ cl.PartyContactPerson_Name }}
+              </ion-col>
+              <!-- <ion-col col-6 style="text-align: end;color:#cecece">
+                {{ cl.Department }}
+              </ion-col> -->
+            </ion-row>
+            <!-- <ion-row>
+              <ion-col col-6 style="color:#cecece;margin-top:5px">
+                {{ cl.Designation }}
+              </ion-col>
+            </ion-row> -->
+          </ion-grid>
+        </ion-card>
+      </ion-list>
+  </div>
+
+  <div *ngIf="ContactList.length==0">
+    <span
+      style="border: 1px solid lightgray;display: block;padding: 3%;margin: 10px;font-size: 21px;text-align: center;">No Records Found</span>
+  </div>
+
+</ion-content>
+
+
+<ion-footer style="background:  #023573;">
+
+  <ion-grid style="position:absolute;bottom: 0;left: 0;">
+    <ion-row>
+      <ion-col col-6 style="border-right: 3px solid #fff;padding:0 !important">
+        <ion-toolbar (click)="BackToPage()">
+          <ion-title>Cancel</ion-title>
+        </ion-toolbar>
+      </ion-col>
+      <ion-col col-6 style="padding:0 !important">
+        <ion-toolbar (click)="AddCp()">
+          <ion-title>Add</ion-title>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-footer>

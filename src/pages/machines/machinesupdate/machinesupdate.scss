@@ -1,0 +1,148 @@
+page-machinesupdate {
+
+        .toolbar-background-md {
+            background:  #023573;
+        }
+        .toolbar-title-md{
+            color: white;
+            font-size: medium;
+            text-transform: uppercase;
+            text-align: center;
+        }
+    
+        .list-md{
+            margin: 0px;
+        }
+    
+        a ion-label, button ion-label{
+            pointer-events: painted;
+        }
+
+        .ClsLabelTxt{
+            color:#666 !important;
+            font-weight: 800 !important;
+        }
+
+
+        .segment-md .segment-button {
+            min-height: 40px;
+            height: auto;
+            line-height: 1.5rem !important;
+            white-space: normal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        section {
+            max-height: 100px;
+            min-height: 57px;
+            height: 5vh;
+            display: flex;
+            justify-content: center;
+        }
+    
+        ion-row {
+            height: inherit;
+            align-items: flex-start;
+        }
+    
+        .scroll-zoom-wrapper {
+            height: 100%;
+        }
+    
+        .segment-button:nth-child(1) {
+            min-width: 80px;
+        }
+    
+        .segment-button:nth-child(2) {
+            min-width: 80px;
+        }
+    
+        .segment-button:nth-child(3) {
+            min-width: 80px;
+        }
+    
+        .segment-button:nth-child(4) {
+            min-width: 120px;
+        }
+
+        .segment-button:nth-child(5) {
+            min-width: 80px;
+        }
+
+        .segment-button:nth-child(6) {
+            min-width: 80px;
+        }
+    
+        .segment-md .segment-button.activated,
+        .segment-md .segment-button.segment-activated {
+            border-color: #023573;
+            color: #023573 !important;
+        }
+
+
+
+        .ClsMcLabel{
+            // color:#909090;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .ClsMcLabelValue{
+            
+            font-size: 14px;
+            
+        }
+
+
+        .NtActiveClass {
+            background: #ccc !important;
+            border: 20px solid #B2BEB5;
+            box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 10px 0px !important;
+            border: 2px dotted #023573;
+            opacity: 0.4;
+        }
+
+        .NtClsLocIcon{
+            display: none;
+        }
+        .NtActiveLabel{
+            color:#B2BEB5;
+            
+        }
+        .ClsSolidLine {
+            border-left: 2px dotted #023573 !important;
+            opacity: 0.4;
+        }
+        
+        .ActiveClass{
+            background-color: #023573;
+            opacity: 0.5;
+        }
+
+        .ClsCircle{
+            height:50px;
+            width:50px;
+            background: #023573;
+            border-radius: 50%;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 15px 12px;
+        }
+        .vl {
+            border-left: 3px dotted #023573;
+            height: 60px;
+            margin-left: 23px;
+          }
+          .alert-title {
+            font-size: 18px !important;
+          }
+          .select-md {
+            padding: 10px 8px 3px 0px !important;
+          }
+
+          .text-input-md {
+            margin: 5px 8px !important;
+          }
+          
+    }
+

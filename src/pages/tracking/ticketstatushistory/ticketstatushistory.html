@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ticket Status</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid style="padding:10px !important" *ngFor="let tl of TicketHistoryList;index as i">
+
+    <ion-row style="display: flex">
+
+      <ion-col col-1>
+        <div class="ClsCir">{{i+1}}</div>
+        <div class="Clsvl" id="leftdiv"></div>
+      </ion-col>
+
+      <ion-col col-11>
+        <div class="arrow-left"></div>
+        <div class="ClsContainer" id="rightdiv">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                {{tl.NotesDescription}}
+                <hr>
+              </ion-col>
+            </ion-row>
+            <ion-row style="color:#909090">
+              <ion-col col-12><span style="font-size:small">Updated By :</span> {{tl.CreatedBy}} <span>,</span>
+                {{tl.Department}}<span style="font-size:small;float:right;">{{tl.CreatedDateAndTimeString}}</span>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer style="background:  #023573;">
+  <ion-toolbar (click)="ModelClose()">
+    <ion-title style="text-align: center;">Close</ion-title>
+  </ion-toolbar>
+</ion-footer>

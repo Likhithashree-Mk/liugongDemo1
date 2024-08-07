@@ -1,0 +1,146 @@
+.alert-head {
+    background: #023573 !important;
+    color: white !important;
+    text-align: center !important;
+}
+
+.alert-button {
+    color: white !important;
+    width: 45%;
+    background: #f36e20 !important;
+}
+
+.alert-title {
+    text-align: center;
+    color: white;
+}
+
+.alert-md .alert-input:focus {
+    margin-bottom: 4px;
+    border-bottom: 2px solid #f36e20;
+}
+
+.alert-md .alert-message {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.BtnOnePopup {
+    background: #f36e20 !important;
+    color: white !important;
+    width: 100%;
+}
+
+.BtnTwoPopup {
+    background: #f36e20 !important;
+    color: white !important;
+    width: 45%;
+}
+
+.col,
+.grid,
+.searchbar {
+    padding: 0px !important;
+}
+
+.toolbar-title {
+    text-align: center;
+}
+
+.SpnRecordCount {
+    margin: auto;
+}
+
+.SpnLable {
+    display: block;
+    color: #4c565a;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+    font-size: 1em;
+}
+
+.SpnLableValue {
+    display: block;
+    color: #4c565a;
+    text-align: left;
+    padding: 8px;
+    font-size: 1em;
+}
+
+.SpnColon {
+    margin: auto;
+}
+
+.InputControle {
+    width: 100%;
+    border: 1px solid lightgray;
+    padding: 5px;
+    border-radius: 3px
+}
+
+.list-md .item-input.item-input-has-focus:last-child,
+.list-md .item-input.input-has-focus:last-child {
+    border-bottom-color: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
+    border-bottom-color: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.list {
+    margin: auto !important;
+}
+
+.item-inner {
+    border: 0px !important;
+}
+
+.clsFooterBtn {
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: none !important;
+    background: none !important;
+    background: #023573 !important;
+}
+
+.alert-wrapper {
+    margin-top: 0px !important;
+}
+
+// ion-segment{
+//     overflow-x: scroll !important;
+// }
+
+// .segment-button{
+//     flex: 0 !important;
+//     -ms-flex: 0 !important;
+//     width: max-content !important;
+//     overflow: clip !important;
+// }
+
+.alert-md .alert-button .button-inner {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.alert-md .alert-button-group {
+    padding: 8px;
+}
+
+.input-cover {
+    display: none;
+}
+
+.TxtCPRemarks {
+    border: 1px solid #dedede;
+    width: 100%;
+    border-radius: 3px;
+}

@@ -1,0 +1,31 @@
+.alert-sub-title {
+  text-align: center;
+}
+
+.alert-message {
+  overflow: hidden !important;
+}
+
+.BtnRegisterPopup {
+  background: #4c565a !important;
+  color: white !important;
+  width: 100%;
+}
+
+.alert-button-group {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  padding: 8px 8px 8px 16px !important;
+}
+
+.button-inner {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
+.BtnLogoutPopup{
+  background: #023573 !important;
+}
+/*# sourceMappingURL=login.css.map */

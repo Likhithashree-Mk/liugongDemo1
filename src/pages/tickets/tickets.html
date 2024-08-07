@@ -1,0 +1,236 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content>
+
+  <section>
+
+    <ion-scroll #TabScroll scrollX="true" style=" white-space:nowrap; height: 100%; width: 100%; max-width: 700px">
+      
+      <ion-row nowrap style="width: auto;">
+
+        <ion-segment [(ngModel)]="ServiceRequestTab" style="width: inherit" (ionChange)="TabChange(ServiceRequestTab)">
+          
+          <ion-segment-button value="ComplaintDescription">
+            <span> Complaint Description </span>
+          </ion-segment-button>
+          
+          <ion-segment-button value="MachineDetails">
+            Machine Details
+          </ion-segment-button>
+          
+          <ion-segment-button value="LocationDetails">
+            Location Details
+          </ion-segment-button>
+          
+          <ion-segment-button value="Attachments">
+            Attachments
+          </ion-segment-button>
+
+        </ion-segment>
+
+      </ion-row>
+
+    </ion-scroll>
+
+  </section>  
+
+  <div [ngSwitch]="ServiceRequestTab">
+
+    <ion-list *ngSwitchCase="'ComplaintDescription'" style="padding: 5px;">
+
+      <div [hidden]="global.UserDetails.length==1">
+        <ion-list>
+          <ion-item>
+            <ion-label>Customer</ion-label>
+            <ion-select [(ngModel)]="selectedCustomerID" (ionChange)="PartyChange(selectedCustomerID)">
+              <ion-option value="-1">Select</ion-option>
+              <ion-option value="{{c.Party}}" *ngFor="let c of global.UserDetails">{{c.Party_Name + "
+                ("+c.Party_code+")"}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <textarea style="border: 1px solid lightgray;width: 96%;border-radius: 5px;margin: 10px;height: 80px;"
+        [(ngModel)]="CallDescription" placeholder="Issue Description *"></textarea>
+
+      <ion-grid style="margin-top: 6%;">
+        <ion-row style="height: 6.6vh;">
+          <ion-col col-7 style="display: flex;height: 100%;">
+            <span style="margin: auto;margin-left: 10px;">Is Vehicle Breakdown?</span>
+          </ion-col>
+          <ion-col col-5 style="height: 100%;">
+            <ion-item>
+              <ion-label>{{IsVehicleBreakdown?"Yes":"No"}}</ion-label>
+              <ion-toggle checked="false" [(ngModel)]="IsVehicleBreakdown"></ion-toggle>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'MachineDetails'" style="padding: 5px;">
+
+      <ion-grid>
+        <ion-row style="padding: 5px;">
+          <ion-col col-6 style="display: flex;">
+            <span style="margin: auto;margin-left: 3px;">Brand <span style="color: red;font-weight: bold;">*</span></span>
+          </ion-col>
+          <ion-col col-6>
+            <select class="InputControle" (change)="BrandChange($event)" [(ngModel)]="SelectedBrand">
+              <option value="-1">Select</option>
+              <option value="{{item.BrandId}}" *ngFor="let item of Brands">{{item.BrandName}}</option>
+            </select>
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 5px;" (click)="SelectMachineModel()">
+          <ion-col col-6 style="display: flex;">
+            <span style="margin: auto;margin-left: 3px;">Serial No <span style="color: red;font-weight: bold;">*</span></span>
+          </ion-col>
+          <ion-col col-6>
+            <select class="InputControle" style="pointer-events: none;" [(ngModel)]="SelectedSerialNumber">
+              <option value="-1">Select</option>
+              <option value="{{item.Product_SerialNumber}}" *ngFor="let item of ProductSerialno">
+                {{item.Product_SerialNumber}}
+              </option>
+            </select>
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 5px;">
+          <ion-col col-6 style="display: flex;">
+            <span style="margin: auto;margin-left: 3px;">Model</span>
+          </ion-col>
+          <ion-col col-6>
+            <input type="text" [(ngModel)]="SelectedModel" disabled class="InputControle">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 5px;">
+          <ion-col col-6 style="display: flex;">
+            <span style="margin: auto;margin-left: 3px;">HMR</span>
+          </ion-col>
+          <ion-col col-6>
+            <input type="number" [(ngModel)]="HMRReading" class="InputControle">
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'LocationDetails'" style="padding: 5px;">
+
+      <ion-grid>
+        <ion-row style="height: 6.6vh;">
+          <ion-col col-7 style="display: flex;height: 100%;">
+            <span style="margin: auto;margin-left: 10px;">Are You At Breakdown Location?</span>
+          </ion-col>
+          <ion-col col-5 style="height: 100%">
+            <ion-item>
+              <ion-label>{{IsBreakdownLocation?"Yes":"No"}}</ion-label>
+              <ion-toggle checked="false" [(ngModel)]="IsBreakdownLocation"
+                (ionChange)="IsBreakdownLocationChange(IsBreakdownLocation)"></ion-toggle>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 5px;">
+          <ion-col col-6 style="display: flex;">
+            <span style="margin: auto;margin-left: 3px;">State</span>
+          </ion-col>
+          <ion-col col-6>
+            <input type="text" [(ngModel)]="State" (blur)="ValidationBlur(1)" [disabled]="IsBreakdownLocation"
+              class="InputControle">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 5px;">
+          <ion-col col-6 style="display: flex;">
+            <span style="margin: auto;margin-left: 3px;">City</span>
+          </ion-col>
+          <ion-col col-6>
+            <input type="text" [(ngModel)]="City" (blur)="ValidationBlur(2)" [disabled]="IsBreakdownLocation"
+              class="InputControle">
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Attachments'" style="padding: 5px;">
+
+      <!-- <ion-icon name="attach" style="font-size: 33px;padding: 8px;cursor: pointer;"
+        (click)="AttachmentClick()"></ion-icon> -->
+
+      <input type="file" id="FileAttchments" style="display:none" [(ngModel)]="tempURL"
+        (change)="FileChangeMethod($event)" />
+
+      <div [hidden]="!AttachmentsList.length>0" style="border: 1px solid lightgray;margin: 3px;padding: 5px;">
+        
+        <ion-grid>
+
+          <ion-row *ngFor="let a of AttachmentsList let i=index" style="border: 1px solid gray">
+            <ion-col col style="display: flex;">
+              <img src="{{a.path}}" style="margin: auto;width: 90%;">
+            </ion-col>
+            <ion-col col-4 style="display: flex;">
+              <span style="margin: auto;margin-left: 1px;width: 100%;">{{a.name}}</span>
+            </ion-col>
+            <ion-col col-5 style="display: flex;">
+              <input type="text" class="InputControle" style="margin: auto;" [(ngModel)]="a.description">
+            </ion-col>
+            <ion-col col style="display: flex;">
+              <ion-icon name="remove-circle" style="margin: auto;font-size: 30px;color: gray;"
+                (click)="RemoveAttachment(i)"></ion-icon>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+
+      </div>
+
+      <ion-fab right bottom (click)="AttachmentClick()">
+        <button ion-fab style="background-color: #fb5a02"><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
+
+    </ion-list>
+
+  </div>
+
+  <!-- <span style="color:red;display: block;padding: 10px;">*Required Information</span> -->
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-navbar color="nav">
+    
+    <ion-grid style="padding: 0px;">
+      <ion-row>
+        <ion-col col-6 style="border-right: 3px solid white;padding: 0px;">
+          <div align="center">
+            <button ion-button class="clsFooterBtn"  color="nav" (click)="TicketCancelClick()">Cancel</button>
+          </div>
+        </ion-col>
+        <!-- <ion-col col-4 style="border-right: 3px solid white;padding: 0px;">
+          <div align="center">
+            <button ion-button class="clsFooterBtn" color="nav" (click)="ResetClick()">Reset</button>
+          </div>
+        </ion-col> -->
+        <ion-col col-6 style="padding: 0px;">
+          <div align="center">
+            <button ion-button class="clsFooterBtn"  color="nav" (click)="TicketSubmitClick()">Submit</button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-navbar>
+
+</ion-footer>

@@ -1,0 +1,148 @@
+<!-- <ion-header>
+  <page-header></page-header>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center>{{this.global.HeaderTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-list>
+  <!-- <ion-card style="padding:10px"> -->
+    <ion-grid style="padding: 10px !important;margin-top: 15px;">
+      <ion-row style="margin-bottom: 15px;">
+        <ion-col col-4>
+          <label class="ClsLabelTxt">Name</label><span style="color:red">&nbsp;*</span>
+        </ion-col>
+        <ion-col col-1>:</ion-col>
+        <ion-col col-7>
+          <ion-item style="border: none !important;">
+            <ion-input type="text" [(ngModel)]="global.SelectedContactList.PartyContactPerson_Name" (blur)="NameValidation(global.SelectedContactList.PartyContactPerson_Name)"
+              style="font-size: 14px; margin-top:-20px;border-bottom: 1px solid #dedede !important;padding-bottom:5px;width: -moz-available;max-width: 100%;">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <label *ngIf="validName" style="color:red;margin-left: 22vh;position: absolute;margin-top: 25px;">Enter valid Name</label>
+      </ion-row>
+      <ion-row style="margin-bottom: 15px;">
+        <ion-col col-4>
+          <label class="ClsLabelTxt">Department</label>
+        </ion-col>
+        <ion-col col-1>:</ion-col>
+        <ion-col col-7>
+          <ion-item>
+            <ion-label>Department</ion-label>
+            <ion-select label="Status" placeholder="Select" [(ngModel)]="this.global.SelectedContactList.PartyContactPerson_Department"
+              style="margin-top:-20px;margin-left: -8px;padding: 0 !important;border-bottom: 1px solid #dedede !important;padding-bottom:5px;width:100%;max-width: 108%;">
+              <ion-option *ngFor="let dl of DepartmentList" value="{{dl.Name}}">{{dl.Name}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row style="margin-bottom: 15px;">
+        <ion-col col-4>
+          <label class="ClsLabelTxt">Designation</label>
+        </ion-col>
+        <ion-col col-1>:</ion-col>
+        <ion-col col-7>
+          <ion-item>
+            <ion-label>Designation</ion-label>
+            <ion-select [(ngModel)]="SelectedDesignation" (ionChange)="DesignationChange(SelectedDesignation)"
+              style="margin-top:-20px;margin-left: -8px;padding: 0 !important;border-bottom: 1px solid #dedede !important;padding-bottom:5px;width:100%;max-width: 108%;">
+              <ion-option [value]="SelectedDesignation">{{global.SelectedContactList.Designation}}</ion-option>
+              <!-- <ion-option value="marketing">Market Head</ion-option>
+              <ion-option value="admin">Admin</ion-option>
+              <ion-option value="Lead">Lead</ion-option> -->
+            <!-- </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row> -->
+      <ion-row style="margin-bottom: 15px;">
+        <ion-col col-4>
+          <label class="ClsLabelTxt">Mobile</label><span style="color:red">&nbsp;*</span>
+        </ion-col>
+        <ion-col col-1>:</ion-col>
+        <ion-col col-7>
+          <ion-item style="border: none !important;">
+            <ion-input type="tel" maxlength="10"  [(ngModel)]="global.SelectedContactList.PartyContactPerson_Mobile" (blur)="MobileValidation(global.SelectedContactList.PartyContactPerson_Mobile)"
+              style="font-size: 14px; margin-top:-20px;border-bottom: 1px solid #dedede !important;padding-bottom:5px;width: -moz-available;max-width: 100%;">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <label *ngIf="validMob" style="color:red;margin-left: 23.5vh;position: absolute;margin-top: 25px;">Enter valid Mobile number</label>
+      </ion-row>
+      <ion-row style="margin-bottom: 15px;">
+        <ion-col col-4>
+          <label class="ClsLabelTxt">Email</label>
+        </ion-col>
+        <ion-col col-1>:</ion-col>
+        <ion-col col-7>
+          <ion-item style="border: none !important;">
+            <ion-input type="email" [(ngModel)]="global.SelectedContactList.PartyContactPerson_Email" (blur)="EmailValidation(global.SelectedContactList.PartyContactPerson_Email)"
+              style="font-size: 14px; margin-top:-20px;border-bottom: 1px solid #dedede !important;padding-bottom:5px;width: -moz-available;max-width: 100%;">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <label *ngIf="validEmail" style="color:red;margin-left: 23.5vh;position: absolute;margin-top: 25px;">Enter valid Email ID</label>
+      </ion-row>
+      <ion-row style="margin-bottom: 15px;">
+        <ion-col col-4>
+          <label class="ClsLabelTxt">Is Default Contact</label>
+        </ion-col>
+        <ion-col col-1>:</ion-col>
+        <ion-col col-7>
+          <ion-item>
+            <ion-checkbox color="dark" [(ngModel)]="global.SelectedContactList.Party_IsDefaultContact" style="margin-top:-18px"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-bottom: 15px;">
+        <ion-col col-4>
+          <label class="ClsLabelTxt">Landline</label>
+        </ion-col>
+        <ion-col col-1>:</ion-col>
+        <ion-col col-7>
+          <ion-item style="border: none !important;">
+            <ion-input type="tel" [(ngModel)]="global.SelectedContactList.PartyContactPerson_Phone" (blur)="LandlineValidation(global.SelectedContactList.PartyContactPerson_Phone)"
+              style="font-size: 14px; margin-top:-20px;border-bottom: 1px solid #dedede !important;padding-bottom:5px;width: -moz-available;max-width: 100%;">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <label *ngIf="validlandline" style="color:red;margin-left: 23.5vh;position: absolute;margin-top: 25px;">Enter valid Landline number</label>
+      </ion-row>
+      <ion-row style="margin-bottom: 15px;">
+        <ion-col col-4>
+          <label class="ClsLabelTxt">Remarks</label>
+        </ion-col>
+        <ion-col col-1>:</ion-col>
+        <ion-col col-7>
+          <ion-item>
+            <!-- <ion-checkbox color="dark" [(ngModel)]="global.SelectedContactList.IsActive" style="margin-top:-18px" (ionChange)="DefaultContactChange(DefaultValue)"></ion-checkbox> -->
+            <textarea  rows="5" cols="18" placeholder="Enter Remarks" class="TxtCPRemarks" [(ngModel)]="global.SelectedContactList.PartyContactPerson_Remarks"></textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  <!-- </ion-card> -->
+  </ion-list>
+</ion-content>
+
+
+<ion-footer style="background:  #023573;">
+  <ion-grid style="position:absolute;bottom: 0;left: 0;">
+    <ion-row>
+      <ion-col col-6 style="border-right: 3px solid #fff;padding:0 !important">
+        <ion-toolbar (click)="BackToPage()">
+          <ion-title>Close</ion-title>
+        </ion-toolbar>
+      </ion-col>
+      <ion-col col-6 style="padding:0 !important">
+        <ion-toolbar (click)="Save()">
+          <ion-title>Save</ion-title>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

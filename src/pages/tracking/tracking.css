@@ -1,0 +1,17 @@
+page-tracking .card-header {
+  color: #fff;
+  padding: 0px;
+}
+
+page-tracking .card-content {
+  padding: 1px;
+}
+
+page-tracking .item-md-primary, page-tracking .item-divider-md-primary {
+  background: lightgray;
+}
+
+page-tracking .icon-md-light {
+  color: gray;
+}
+/*# sourceMappingURL=tracking.css.map */

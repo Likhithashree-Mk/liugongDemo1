@@ -1,0 +1,93 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10>
+        <ion-searchbar (keyup)="MachinesListCount($event)"
+        [(ngModel)]="MachinListSeartcText" placeholder="Enter Serial # or Model or Brand"></ion-searchbar>
+      </ion-col>
+      <ion-col col-2 style="display: flex;">
+        <span class="SpnRecordCount">Count:{{FinalMachineDetailsList.length}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <div [hidden]="global.UserDetails.length==1" style="border: 1px solid lightgray;margin: 10px;padding: 10px;">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 style="display: flex;">
+          <span style="margin: auto;margin-left: 3px;">Customer</span>
+        </ion-col>
+        <ion-col col-6>
+          <select (change)="PartyChange($event)" class="InputControle">
+            <option value="-1">select</option>
+            <option value="{{c.Party}}" *ngFor="let c of global.UserDetails">{{c.Party_Name + " ("+c.Party_code+")"}}
+            </option>
+          </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> -->
+
+  <!-- <div [hidden]="global.UserDetails.length==1" style="margin-top: 10px">
+    <ion-list>
+      <ion-item>
+        <ion-label>Customer</ion-label>
+        <ion-select [(ngModel)]="selectedCustomerID" (ionChange)="PartyChange(selectedCustomerID)">
+          <ion-option value="-1">Select</ion-option>
+          <ion-option value="{{c.Party}}" *ngFor="let c of global.UserDetails">{{c.Party_Name + "
+            ("+c.Party_code+")"}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div> -->
+
+  <!-- <ion-list> -->
+  <div style="height: 86.3vh; overflow-y: scroll;box-shadow: 1px 1px 1px 3px lightgray;margin-top: 3px;"
+    *ngIf="FinalMachineDetailsList.length!=0">
+
+    <ion-card style="border: 1px solid lightgray;padding: 5px;" *ngFor="let item of FinalMachineDetailsList"
+      (click)="SelectedMachine(item)">
+
+      <ion-grid style="padding:0px">
+
+        <ion-row style="padding:5px">
+
+          <ion-col style="padding:3px">
+            <span>{{item.Product_SerialNumber}}</span>
+          </ion-col>
+
+          <ion-col style="padding:3px">
+            <span style="display: block; text-align:right">{{item.BrandData}}</span>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row style="padding:5px">
+
+          <ion-col style="padding:3px">
+            <span>{{item.ModelData}}</span>
+          </ion-col>
+
+          <ion-col style="padding:3px">
+            <span style="text-align:right"></span>
+          </ion-col>
+
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-card>
+  </div>
+  <!-- </ion-list> -->
+
+  <div *ngIf="FinalMachineDetailsList.length==0">
+    <span
+      style="border: 1px solid lightgray;display: block;padding: 3%;margin: 10px;font-size: 21px;text-align: center;">No Records Found</span>
+  </div>
+
+</ion-content>

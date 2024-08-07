@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center>{{this.global.HeaderTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-list>
+    <!-- <ion-card style="padding:12px;"> -->
+      <ion-grid style="padding:15px !important;margin-bottom:10px">
+        <!-- <ion-row>
+          <label Class="ClsLblTxt">Machine Shifted Date</label>
+            <ion-item style="border: none !important;padding-top: 5px;width:95%;">
+              <ion-datetime
+                style="margin-top:-18px;border-bottom: 1px solid #dedede !important;width:100%;"
+                no-padding min="2023" max="2023" [(ngModel)]="global.SelectedSiteAddressList.MachineShiftedDate"
+                (ionChange)="MachineShiftedDateChange()">{{global.SelectedSiteAddressList.MachineShiftedDate}}</ion-datetime>
+            </ion-item>
+        </ion-row> -->
+
+        <!-- <ion-row>
+          <ion-col col-6>
+            <label Class="ClsLblTxt">Machine Shifted<span style="color:red" *ngIf="IsMandatory">&nbsp;*</span></label>
+            <ion-item style="border: none !important;padding-top: 5px;width:95%;">
+              <ion-datetime [(ngModel)]="global.SelectedSiteAddressList.MachineShiftedDate" [disabled]="IsDisabled" (ionChange)="ShiftedDateChange()" placeholder="Date"
+                style="margin-top:-18px;border-bottom: 1px solid #dedede !important;width:100%;" no-padding min="2023" max="2023" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY">
+                {{global.SelectedSiteAddressList.MachineShiftedDate}}
+              </ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <label>&nbsp;</label>
+            <ion-item style="border: none !important;padding-top: 5px;width:95%;">
+              <ion-datetime [(ngModel)]="MachineShiftedTime" [disabled]="IsDisabled" (ionChange)="MachineShiftedTimeChange()" placeholder="Time"
+                style="margin-top:-18px;border-bottom: 1px solid #dedede !important;width:100%;" no-padding min="00:01" displayFormat="HH:mm">
+              </ion-datetime>
+            </ion-item>
+          </ion-col>
+        </ion-row> -->
+
+        <ion-row>
+          <label Class="ClsLblTxt">Site Address<span style="color:red">&nbsp;*</span></label>
+          <ion-item style="border: none !important;padding-top: 5px;width:95%;">
+            <ion-input type="text" [(ngModel)]="global.SelectedSiteAddressList.ProductSiteAddress_SiteAddress"
+              style="font-size: 14px; margin-top:-28px;border-bottom: 1px solid #dedede !important;width: -moz-available;max-width: 100%;">
+            </ion-input>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <label Class="ClsLblTxt">Location<span style="color:red">&nbsp;*</span></label>
+          <ion-item style="border: none !important;padding-top: 5px;width:95%;">
+            <ion-input type="text" [(ngModel)]="global.SelectedSiteAddressList.ProductSiteAddress_Location"
+              style="font-size: 14px; margin-top:-28px;border-bottom: 1px solid #dedede !important;width: -moz-available;max-width: 100%;">
+            </ion-input>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <label Class="ClsLblTxt">State<span style="color:red">&nbsp;*</span></label>
+          <ion-item>
+            <ion-label>State</ion-label>
+            <ion-select  placeholder="Select" [(ngModel)]="global.SelectedSiteAddressList.State_Name"
+              style="margin-top:-30px;margin-left:-7px;border-bottom: 1px solid #dedede !important;width:100%;max-width: 108%;">
+              <ion-option [value]="SelectedState">{{global.SelectedSiteAddressList.State_Name}}</ion-option>
+              <!-- <ion-option value="marketing">Marketing</ion-option>
+              <ion-option value="admin">Admin</ion-option>
+              <ion-option value="transport">Transport</ion-option> -->
+            </ion-select>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <label Class="ClsLblTxt">Country</label>
+            <ion-item style="border: none !important;padding-top: 5px;width:95%;">
+              <ion-input type="text" [(ngModel)]="global.SelectedSiteAddressList.Country_Name" [disabled]="true"
+                style="font-size: 14px; margin-top:-28px;border-bottom: 1px solid #dedede !important;width: -moz-available;max-width: 100%;">
+              </ion-input>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <label Class="ClsLblTxt">Zone</label>
+          <ion-item style="border: none !important;padding-top: 5px;width:95%;">
+            <ion-input type="text" [(ngModel)]="global.SelectedSiteAddressList.Region_Name" [disabled]="true"
+              style="font-size: 14px; margin-top:-28px;border-bottom: 1px solid #dedede !important;width: -moz-available;max-width: 100%;">
+            </ion-input>
+        </ion-item>
+        </ion-row>
+        <ion-row style="margin-bottom: 5px;">
+          <ion-col col-10>
+            <label class="ClsLabelTxt" style="font-weight: 500;color:#B2BEB5;padding-left:18px">Is Current Site?</label>
+          </ion-col>
+          <ion-col col-2>
+            <ion-item>
+              <ion-checkbox color="dark" style="margin-top:-18px" (ionChange)="CheckboxChange($event)" [(ngModel)]="IsAddressActive"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+        <!-- <label Class="ClsLblTxt" style="color:#ccc">Last updated on :</label>
+          <ion-input type="text" value="Oct 06 2023, 05:48 PM" [disabled]="true"
+            style="font-size: 14px;max-width: 100%;padding-left: 20px;">
+          </ion-input> -->
+        
+    <!-- </ion-card> -->
+  </ion-list>
+</ion-content>
+
+
+<ion-footer style="background:  #023573;">
+  <ion-grid style="position:absolute;bottom: 0;left: 0;">
+    <ion-row>
+      <ion-col col-6 style="border-right: 3px solid #fff;padding:0 !important">
+        <ion-toolbar (click)="BackToPage()">
+          <ion-title>Close</ion-title>
+        </ion-toolbar>
+      </ion-col>
+      <ion-col col-6 style="padding:0 !important">
+        <ion-toolbar (click)="Save()">
+          <ion-title>Save</ion-title>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

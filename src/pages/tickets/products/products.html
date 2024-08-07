@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Products</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <!-- <ion-grid style="padding:0px;background: lightgray;">
+    <ion-row style="padding:0px;">
+      <ion-col col-10>
+        <ion-searchbar (ionInput)="ProductsListCount($event)" [(ngModel)]="ProductsListSeartcText"></ion-searchbar>
+      </ion-col>
+      <ion-col col style="display: flex;">
+        <span style="margin: auto;font-size: 12px;margin-left:0px">Records : {{FinalSelectedBrandList.length}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10>
+        <ion-searchbar (keyup)="ProductsListCount($event)"
+        [(ngModel)]="ProductsListSeartcText" placeholder="Enter Serial Number"></ion-searchbar>
+      </ion-col>
+      <ion-col col-2 style="display: flex;">
+        <span class="SpnRecordCount">Count:{{FinalSelectedBrandList.length}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item style="border: 1px solid lightgray;padding: 10px;" *ngFor="let item of FinalSelectedBrandList"
+      (click)="SelectedProduct(item)">
+      {{ item.Product_SerialNumber }}
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer style="background:#023573;">
+  <ion-toolbar (click)="ProductModelClose()">
+    <ion-title style="text-align: center;">Close</ion-title>
+  </ion-toolbar>
+</ion-footer>

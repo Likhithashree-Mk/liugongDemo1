@@ -1,0 +1,59 @@
+.BtnCallBackPopup {
+  width: 100% !important;
+}
+
+.DivMenuContainer {
+  border: 1px solid #4c565a;
+  height: 100%;
+  width: 100%;
+  background: lightgray;
+  cursor: pointer;
+}
+
+.ImgMenus {
+  height: 50%;
+  margin: auto;
+}
+
+#DivMenuContainer {
+  height: 91vh;
+  display: flex;
+}
+
+#DivMenuContainer .col {
+  display: flex;
+}
+
+#DivMenuContainer .ImgMenu {
+  width: 50%;
+  margin: auto;
+}
+
+#DivMenuContainer .SpnMenuText {
+  display: block;
+  text-align: center;
+  //margin: 10px;
+  font-size: 12px;
+}
+
+#DivMenuContainer .card {
+  width: 80%;
+  margin: auto;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.DivMenuParent {
+  width: 100%;
+  height: 15vh;
+  cursor: pointer;
+}
+
+.DivMenu {
+  height: 10vh;
+  width: 10vh;
+}
+
+.card-content-md{
+  padding: 8px 10px !important;
+}

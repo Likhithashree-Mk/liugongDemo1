@@ -1,0 +1,33 @@
+<ion-content>
+
+    <img src="assets/imgs/RegisterBG10.png" style="width:100%" />
+    
+    <p style="display:none" id="AppVersion" data-ApplicationID="1" data-Version="1" #PAutoUpdate></p>
+
+    <div id="DivParent">
+
+        <div id="DivregisterForm">
+
+            <span id="SpnRegistration">Login</span>
+
+            <ion-item>
+                <ion-label floating>Registered Mobile number</ion-label>
+                <ion-input #myInput type="tel" [(ngModel)]="Mobilenumber" maxlength="10" (keyup)="MobileNumberChange(Mobilenumber)"></ion-input>
+            </ion-item>
+
+            <ion-grid style="margin-top: 15px;margin-bottom: 15px;">
+                <ion-row>
+                    <ion-col col>
+                        <div align="center">
+                            <button ion-button color="light" style="width: 80%;background: #f36e20;color: white;"
+                                (click)="LoginClick()">{{LoginButtonText}}</button>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+        </div>
+
+    </div>
+
+</ion-content>

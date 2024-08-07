@@ -1,0 +1,108 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content>
+
+  <div id="DivMenuContainer">
+
+    <ion-grid style="margin-top: 50px;">
+
+      <ion-row>
+
+        <ion-col col-4 (click)="HomeCallUsClick()">
+          <div class="DivMenuParent" align="center">
+            <div class="DivMenu">
+              <img src="assets/imgs/Menus/CallUs.png" />
+            </div>
+            <span class="SpnMenuText">Call Us</span>
+          </div>
+        </ion-col>
+
+        <ion-col col-4 (click)="HomeCallbackClick()">
+          <div class="DivMenuParent" align="center">
+            <div class="DivMenu">
+              <img src="assets/imgs/Menus/Callback.png" />
+            </div>
+            <span class="SpnMenuText">Call Back</span>
+          </div>
+        </ion-col>
+
+        <ion-col col-4 (click)="HomeServiceRequestClick()">
+          <div class="DivMenuParent" align="center">
+            <div class="DivMenu">
+              <img src="assets/imgs/Menus/ServiceRequest.png" />
+            </div>
+            <span class="SpnMenuText">Service Request</span>
+          </div>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row style="margin-top: 20px;">
+
+        <ion-col col-4 (click)="HomeTrackYourRequestClick()">
+          <div class="DivMenuParent" align="center">
+            <div class="DivMenu">
+              <img src="assets/imgs/Menus/TrackRequest.png" />
+            </div>
+            <span class="SpnMenuText">Track Your Request</span>
+          </div>
+        </ion-col>
+
+        <ion-col col-4 (click)="HomeMachineDetailsClick()">
+          <div class="DivMenuParent" align="center">
+            <div class="DivMenu">
+              <img src="assets/imgs/Menus/MachineDetails.png" />
+            </div>
+            <span class="SpnMenuText">Machine Details</span>
+          </div>
+        </ion-col>
+
+        <ion-col col-4 (click)="HomeMachineUpdateListClick()">
+          <div class="DivMenuParent" align="center">
+            <div class="DivMenu">
+              <img src="assets/imgs/Menus/MachineUpdate.png" />
+            </div>
+            <span class="SpnMenuText">Machine Update</span>
+          </div>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row style="margin-top: 20px;">
+
+        <ion-col col-4 (click)="HomeFeedbackClick()" *ngIf="global.UserDetails[0].FeedbacktabRequired>0">
+          <div class="DivMenuParent" align="center">
+            <div class="DivMenu">
+              <img src="assets/imgs/Menus/Feedback.png" />
+            </div>
+            <span class="SpnMenuText">Feedback</span>
+          </div>
+        </ion-col>
+
+        <ion-col col-4 (click)="HomeContactClick()">
+          <div class="DivMenuParent" align="center">
+            <div class="DivMenu">
+              <img src="assets/imgs/Menus/Contact.png" />
+            </div>
+            <span class="SpnMenuText">Contact Person</span>
+          </div>
+        </ion-col>
+
+        <ion-col col-4 (click)="HomeAboutClick()">
+          <div class="DivMenuParent" align="center">
+            <div class="DivMenu">
+              <img src="assets/imgs/Menus/About.png" />
+            </div>
+            <span class="SpnMenuText">About</span>
+          </div>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+
+  </div>
+
+</ion-content>

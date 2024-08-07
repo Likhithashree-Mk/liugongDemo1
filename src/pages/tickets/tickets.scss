@@ -1,0 +1,91 @@
+page-tickets {
+
+    .card-header {
+        color: #fff;
+        padding: 0px;
+    }
+
+    .card-content {
+        padding: 1px;
+    }
+
+    // .item-md-primary, .item-divider-md-primary{
+    //     background: lightgray;
+    // }
+
+    .icon-md-light {
+        color: gray;
+    }
+
+    .list-md .item-input:last-child {
+        border: 0px;
+    }
+
+    .text-input-md {
+        margin: 5px 8px;
+    }
+
+    toolbar-background-md {
+        clear: both;
+    }
+
+    .toolbar-background {
+        // background: #4c565a !important;
+        background:  #023573;
+    }
+
+    .segment-md .segment-button {
+        min-height: 40px;
+        height: auto;
+        line-height: 1.5rem !important;
+        white-space: normal;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #4c565a;
+    }
+
+    section {
+        max-height: 100px;
+        min-height: 57px;
+        height: 5vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    ion-row {
+        height: inherit;
+        align-items: flex-start;
+    }
+
+    .scroll-zoom-wrapper {
+        height: 100%;
+    }
+
+    .segment-button:nth-child(1) {
+        min-width: 180px;
+    }
+
+    .segment-button:nth-child(2) {
+        min-width: 120px;
+    }
+
+    .segment-button:nth-child(3) {
+        min-width: 120px;
+    }
+
+    .segment-button:nth-child(4) {
+        min-width: 120px;
+    }
+
+    .segment-md .segment-button.activated,
+    .segment-md .segment-button.segment-activated {
+        border-color: #4c565a;
+    }
+
+    .clsFooterBtn{
+        background: #023573;
+    }
+
+}
+

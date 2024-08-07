@@ -1,0 +1,25 @@
+page-tickets .card-header {
+  color: #fff;
+  padding: 0px;
+}
+
+page-tickets .card-content {
+  padding: 1px;
+}
+
+page-tickets .item-md-primary, page-tickets .item-divider-md-primary {
+  background: lightgray;
+}
+
+page-tickets .icon-md-light {
+  color: gray;
+}
+
+page-tickets .list-md .item-input:last-child {
+  border: 0px;
+}
+
+page-tickets .text-input-md {
+  margin: 5px 8px;
+}
+/*# sourceMappingURL=tickets.css.map */

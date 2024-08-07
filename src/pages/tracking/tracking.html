@@ -1,0 +1,49 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10>
+        <ion-searchbar (keyup)="SRSearch(SRSearchText)"
+        [(ngModel)]="SRSearchText" placeholder="Enter Ticket # or Status"></ion-searchbar>
+      </ion-col>
+      <ion-col col-2 style="display: flex;">
+        <span class="SpnRecordCount">Count:{{FinalSRList.length}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div style="height: 86.6vh;overflow-y: scroll;">    
+
+    <ion-refresher (ionRefresh)="PageRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-card *ngFor="let sr of FinalSRList" style="padding:0px">
+
+      <div padding (click)="SRClick(sr)" style="height:8vh;width:100%;padding:0px;background:#4c565a0a;">
+        <ion-grid style="padding:0px;height:100%;border-bottom: 1px solid gray;">
+          <ion-row style="padding:0px;">
+            <ion-col col-6 style="margin-top: 5%;">
+              <span style="display: block;font-size: 15px;margin-left: 10px;">{{sr.ServiceRequestNumber}}</span>
+            </ion-col>
+            <ion-col col-5 style="margin-top: 5%;">
+              <span style="display: block;text-align: right;">{{sr.Status}}</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+    </ion-card>
+
+    <div *ngIf="FinalSRList.length==0">
+      <span
+        style="border: 1px solid lightgray;display: block;padding: 3%;margin: 10px;font-size: 21px;text-align: center;">{{MessageDisplay}}</span>
+    </div>
+
+  </div>
+
+</ion-content>

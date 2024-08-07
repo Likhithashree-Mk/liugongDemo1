@@ -1,0 +1,235 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="padding:9px">
+
+    <ion-grid>
+
+      <ion-row>
+        <ion-col col-5>
+          <span class="SpnLable">Request #</span>
+        </ion-col>
+        <ion-col col-1 style="display: flex;">
+          <span class="SpnColon">:</span>
+        </ion-col>
+        <ion-col>
+          <span class="SpnLableValue">{{SelectedSR.ServiceRequestNumber}}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-5>
+          <span class="SpnLable">Date</span>
+        </ion-col>
+        <ion-col col-1 style="display: flex;">
+          <span class="SpnColon">:</span>
+        </ion-col>
+        <ion-col>
+          <span class="SpnLableValue">{{SelectedSR.ServiceRequestDate | date:"dd-MMM-yyyy"}}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-5>
+          <span class="SpnLable">Time</span>
+        </ion-col>
+        <ion-col col-1 style="display: flex;">
+          <span class="SpnColon">:</span>
+        </ion-col>
+        <ion-col>
+          <span class="SpnLableValue">{{SelectedSR.ServiceRequestDate | date:"hh:mm a"}}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-5>
+          <span class="SpnLable">Call Nature</span>
+        </ion-col>
+        <ion-col col-1 style="display: flex;">
+          <span class="SpnColon">:</span>
+        </ion-col>
+        <ion-col>
+          <span class="SpnLableValue">{{SelectedSR.CallNature}}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-5>
+          <span class="SpnLable">Description</span>
+        </ion-col>
+        <ion-col col-1 style="display: flex;">
+          <span class="SpnColon">:</span>
+        </ion-col>
+        <ion-col>
+          <span class="SpnLableValue">{{SelectedSR.CallDescription}}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-5>
+          <span class="SpnLable">Status</span>
+        </ion-col>
+        <ion-col col-1 style="display: flex;">
+          <span class="SpnColon">:</span>
+        </ion-col>
+        <ion-col>
+          <span class="SpnLableValue">{{SelectedSR.Status}}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-5>
+          <span class="SpnLable">Service Engineer</span>
+        </ion-col>
+        <ion-col col-1 style="display: flex;">
+          <span class="SpnColon">:</span>
+        </ion-col>
+        <ion-col>
+          <span class="SpnLableValue">{{SelectedSR.Caseowner}}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-5>
+          <span class="SpnLable">Job Card</span>
+        </ion-col>
+        <ion-col col-1 style="display: flex;">
+          <span class="SpnColon">:</span>
+        </ion-col>
+        <ion-col>
+          <span class="SpnLableValue" style="color: blue;text-decoration: underline;cursor: pointer;"
+            (click)="PDFViewer(SelectedSR.JobCardID)">{{SelectedSR.JobCardNumber}}</span>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+    <ion-card *ngIf="TickectStatusList.length>0" style="margin: 0px;padding: 5px;width: 100%;margin-top: 10px;">
+
+      <ion-grid>
+
+        <ion-row>
+          <ion-col style="text-align: center;">
+            <ion-card-title style="font-size:1.8rem;font-weight: 500;">Ticket Status</ion-card-title>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5>
+            <span class="SpnLable">Updated Date</span>
+          </ion-col>
+          <ion-col col-1 style="display: flex;">
+            <span class="SpnColon">:</span>
+          </ion-col>
+          <ion-col>
+            <span class="SpnLableValue">{{TickectStatusList[TickectStatusList.length-1].CreatedDateAndTime |
+              date:"dd-MMM-yyyy hh:mm a"}} </span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5>
+            <span class="SpnLable">Updated By</span>
+          </ion-col>
+          <ion-col col-1 style="display: flex;">
+            <span class="SpnColon">:</span>
+          </ion-col>
+          <ion-col><span
+              class="SpnLableValue">{{TickectStatusList[TickectStatusList.length-1].CreatedBy}}</span></ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5>
+            <span class="SpnLable">Description</span>
+          </ion-col>
+          <ion-col col-1 style="display: flex;">
+            <span class="SpnColon">:</span>
+          </ion-col>
+          <ion-col>
+            <span class="SpnLableValue">{{TickectStatusList[TickectStatusList.length-1].NotesDescription}}</span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="text-align: center;">
+          <ion-col>
+            <button ion-button color="dark" outline
+              style="font-size: 1rem !important;padding:1.3rem;height:2rem;margin-top:15px"
+              (click)="TicketShowmoreClick()">Show more</button>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-card>
+
+    <ion-card *ngIf="JCStatusList.length>0" style="margin: 0px;padding: 5px;width: 100%;margin-top: 10px;">
+
+      <ion-grid style="margin-top:15px">
+
+        <ion-row>
+          <ion-col style="text-align: center;">
+            <ion-card-title style="font-size:1.8rem;font-weight: 500;">Job Card Status</ion-card-title>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5>
+            <span class="SpnLable">Updated Date</span>
+          </ion-col>
+          <ion-col col-1 style="display: flex;">
+            <span class="SpnColon">:</span>
+          </ion-col>
+          <ion-col>
+            <span class="SpnLableValue">{{JCStatusList[0].Date |
+              date:"dd-MMM-yyyy hh:mm a"}} </span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5>
+            <span class="SpnLable">Mode</span>
+          </ion-col>
+          <ion-col col-1 style="display: flex;">
+            <span class="SpnColon">:</span>
+          </ion-col>
+          <ion-col><span class="SpnLableValue">{{JCStatusList[0].Mode}}</span></ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5>
+            <span class="SpnLable">Activity</span>
+          </ion-col>
+          <ion-col col-1 style="display: flex;">
+            <span class="SpnColon">:</span>
+          </ion-col>
+          <ion-col>
+            <span class="SpnLableValue">{{JCStatusList[0].Activity}}</span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="text-align: center;">
+          <ion-col>
+            <button ion-button color="dark" outline
+              style="font-size: 1rem !important;padding:1.3rem;height: 2rem;margin-top:15px"
+              (click)="JcShowmoreClick()">Show more</button>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-card>
+
+  </div>
+
+</ion-content>
+
+<ion-footer style="background:  #023573;">
+  <ion-toolbar (click)="DetailsModelClose()">
+    <ion-title style="text-align: center;">Close</ion-title>
+  </ion-toolbar>
+</ion-footer>

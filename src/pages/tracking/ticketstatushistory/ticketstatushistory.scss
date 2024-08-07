@@ -1,0 +1,54 @@
+page-ticketstatushistory {
+    .toolbar-background-md {
+        background:  #023573;
+    }
+    .toolbar-title-md{
+        color: white;
+    }
+
+    .ClsCir{
+        height:25px;
+        width:25px;
+        border-radius: 50%;
+        background-color: #f36e20;
+        // margin-left:6px;
+        border:2px solid #f7d8eb;
+        padding: 6px;
+        padding-top: 2px;
+        margin-top: 15px;
+        color:#fff;
+        font-weight: bold;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+    
+    .Clsvl{
+        border-left: 7px solid #d53a9d;
+        height:0px;
+        margin-left: 10px;
+        opacity: 0.2;
+        width: 5px;
+        border-radius: 99px;
+        margin: -2px 10px;
+    }
+    .ClsContainer{
+        width:95%;
+        height: auto;
+        background: #eee;
+        border-radius: 1%;
+        margin-top: 0px;
+        margin-left: 9px;
+        padding:12px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+    .arrow-left {
+        width: 0;
+        height: 0;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-right: 20px solid #eee;
+        position: absolute;
+        margin-left: -2px;
+        margin-top: 6px;
+      }
+
+}

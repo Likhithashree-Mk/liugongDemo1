@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,aADS,CACT,aAAa,CAAA;EACT,UAAU,EAAE,SAAS;CACxB",
+    "sources": [
+        "machines.scss"
+    ],
+    "names": [],
+    "file": "machines.css"
+}

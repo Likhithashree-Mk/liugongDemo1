@@ -1,0 +1,172 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Service Request #</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{details.ServiceRequestNumber}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Call Nature</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{details.CallNature}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Job Card #</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{details.JobCardNumber}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Job Card Date</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{details.JobCardDate}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Planned Start Date</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{details.PlannedStartDate}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Planned Completion Date</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{details.PlannedCompletionDate}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Delay Reason</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{details.JobcardDelayReason}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Job Card Status</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{details.WFStepStatus_Nm}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Site Address</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{details.SiteAddress}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Call Description</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{details.CallDescription}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Corrective Action</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{details.CorrectiveAction}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">JC Report</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col (click)="PDFView(details)">
+        <span class="SpnLableValue" style="color: blue;text-decoration: underline;cursor: pointer;">Pdf</span>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-icon *ngIf="details.JobCardAttachmentDetails.length>0" name="attach"
+    style="font-size: 35px;padding: 10px;"></ion-icon>
+
+  <div style="border: 1px solid lightgray" *ngFor="let a of details.JobCardAttachmentDetails" (click)="AttachmentView(a)">
+    <button ion-item>
+      <span style="color: blue;text-decoration: underline;">{{a.FileName}}</span>
+    </button>
+  </div>
+
+</ion-content>
+
+<ion-footer style="background:  #4c565a;">
+  <ion-toolbar (click)="DetailsModelClose()">
+    <ion-title style="text-align: center;">Close</ion-title>
+  </ion-toolbar>
+</ion-footer>

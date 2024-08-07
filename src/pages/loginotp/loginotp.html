@@ -1,0 +1,51 @@
+<ion-content>
+
+    <img src="assets/imgs/RegisterBG10.png" style="width:100%" />
+
+    <div id="DivParent">
+
+        <div id="DivregisterForm">
+
+            <span id="SpnRegistration">Enter OTP Sent To Your Registered Mobile Number</span>
+
+            <ion-item>
+                <ion-label floating>OTP</ion-label>
+                <ion-input #myInput type="tel" maxlength="4" [(ngModel)]="EnteredOTP"
+                    (keyup)="OTPChange(EnteredOTP)"></ion-input>
+            </ion-item>
+
+            <ion-grid style="margin-top: 15px;margin-bottom: 15px;">
+
+                <ion-row>
+                    <ion-col col>
+                        <div align="center">
+                            <button ion-button color="light" style="width: 80%;background: #f36e20;color: white;"
+                                (click)="LoginClick(EnteredOTP)">Login</button>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row *ngIf="ResendOTPTime==0">
+                    <ion-col col>
+                        <div align="center">
+                            <button ion-button color="light" style="width: 80%;background: #f36e20;color: white;"
+                                (click)="ResendOTPClick()">Resend OTP</button>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row *ngIf="ResendOTPTime>0">
+                    <ion-col col>
+                        <div align="center">
+                            <span id="SpnResentOTP">You can resend OTP in {{ResendOTPTime}} seconds</span>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+            </ion-grid>
+
+        </div>
+
+    </div>
+
+</ion-content>

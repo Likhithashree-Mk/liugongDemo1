@@ -1,0 +1,94 @@
+<ion-navbar>
+    <!--<ion-grid>
+      <ion-row>
+          <ion-col col-1 (click)="HeaderBackClick()">
+              <div style="height:100%" align="center">
+                  <ion-icon name="ios-arrow-back"></ion-icon>
+              </div>
+          </ion-col>
+          <ion-col col-1 (click)="HeaderSideMenuClick()">
+              <div style="height:100%;margin-left:5px" align="center">
+                  <ion-icon name="menu"></ion-icon>
+              </div>
+          </ion-col>
+          <ion-col col-1 (click)="HeaderHomeClick()">
+              <div style="height:100%;margin-left:15px">
+                  <ion-icon name="home"></ion-icon>
+              </div>
+          </ion-col>
+          <ion-col>
+              <div style="height:100%;display:flex;align-items:center">
+                  <ion-title>{{ global.HeaderTitle }}</ion-title>
+              </div>
+          </ion-col>
+      </ion-row>
+  </ion-grid>-->
+
+    <!-- <ion-icon name="ios-arrow-back" (click)="HeaderBackClick()" style="margin-left:5px"></ion-icon>
+
+    <ion-icon name="menu" (click)="HeaderSideMenuClick()" style="margin-left:19px"></ion-icon>
+
+    <ion-icon name="home" (click)="HeaderHomeClick()" style="margin-left:19px"></ion-icon>
+
+    <span class="SpnTitle">{{global.HeaderTitle}}</span> -->
+
+    <!-- <img src="assets/imgs/Wirtgen_logo.png" style="position: absolute;right: 10px;width: 8%;" /> -->
+
+    <ion-grid>
+        <ion-row>
+            <ion-col col-4>
+                <div style="height:100%;margin-left: 5px;" align="left">
+                    <ion-icon name="md-arrow-round-back" (click)="HeaderBackClick()"></ion-icon>
+                </div>
+            </ion-col>
+            <ion-col col-4>
+                <div style="height:100%;" align="center">
+                    <ion-icon name="md-home" (click)="HeaderHomeClick()"></ion-icon>
+                </div>
+            </ion-col>
+            <ion-col col-4>
+                <div style="height:100%;margin-right: 5px" align="right">
+                    <ion-icon name="md-power" (click)="SideMenuLogoutClick()"></ion-icon>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-navbar>
+
+<div id="DivHeaderSideMenuContainer" [hidden]="global.sidemenushow">
+
+    <ul style="list-style: none;padding: 3px;margin: 3px;">
+
+        <li style="display: flex;padding:5px;" (click)="SideMenuCallUsClick()">
+            <img src="assets/imgs/call1.png" style="width: 30px">
+            <span style="margin: auto;margin-left: 5px;">Call Us</span>
+        </li>
+
+        <li style="display: flex;padding:5px;" (click)="SideMenuRequestCallBackClick()">
+            <img src="assets/imgs/RequestBack1.png" style="width: 30px">
+            <span style="margin: auto;margin-left: 5px;">Request Call Back</span>
+        </li>
+
+        <li style="display: flex;padding:5px;" (click)="SieMenuServiceRequestClick()">
+            <img src="assets/imgs/calendar1.png" style="width: 30px">
+            <span style="margin: auto;margin-left: 5px;">Service Request</span>
+        </li>
+
+        <li style="display: flex;padding:5px;" (click)="SieMenuTrackYourRequestClick()">
+            <img src="assets/imgs/per75.png" style="width: 30px">
+            <span style="margin: auto;margin-left: 5px;">Track Your Request</span>
+        </li>
+
+        <li style="display: flex;padding:5px;" (click)="SideMenuAboutClick()">
+            <img src="assets/imgs/About.png" style="width: 30px">
+            <span style="margin: auto;margin-left: 5px;">About</span>
+        </li>
+
+        <li style="display: flex;padding:5px;" (click)="SideMenuLogoutClick()">
+            <img src="assets/imgs/logout.png" style="width: 30px">
+            <span style="margin: auto;margin-left: 5px;">Logout</span>
+        </li>
+
+    </ul>
+</div>

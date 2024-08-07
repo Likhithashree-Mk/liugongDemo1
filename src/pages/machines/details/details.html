@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Serial #</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{SelectedProduct.Product_SerialNumber}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Brand</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{SelectedProduct.BrandData}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Product Type</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{SelectedProduct.ProductTypeData}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">Model</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{SelectedProduct.ModelData}}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-5>
+        <span class="SpnLable">HMR</span>
+      </ion-col>
+      <ion-col col-1 style="display: flex;">
+        <span class="SpnColon">:</span>
+      </ion-col>
+      <ion-col>
+        <span class="SpnLableValue">{{SelectedProduct.ProductReading}}</span>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-card *ngFor="let d of SelectedProductDetails" style="padding:0px">
+
+    <div padding (click)="SelectedProductDetailsClick(d)"
+      style="height:auto;width:100%;padding:0px;background:#4c565a0a;">
+      <ion-grid style="padding:0px;height:100%;border-bottom: 1px solid gray;">
+        <ion-row>
+          <ion-col>
+            <ion-row style="padding:5px;">
+              <ion-col col-12>
+                <span style="display: block;font-size: 15px;">{{d.ServiceType}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row style="padding:5px;">
+              <ion-col col-6>
+                <span style="display: block;font-size: 15px;">{{d.JobCardNumber}}</span>
+              </ion-col>
+              <ion-col col-5>
+                <span style="display: block;font-size: 15px;text-align: right;">{{d.JobCardDate}}</span>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+  </ion-card>
+
+</ion-content>
+
+<ion-footer style="background:  #023573;">
+  <ion-toolbar (click)="DetailsModelClose()">
+    <ion-title style="text-align: center;">Close</ion-title>
+  </ion-toolbar>
+</ion-footer>

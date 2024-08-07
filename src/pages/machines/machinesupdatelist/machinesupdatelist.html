@@ -1,0 +1,55 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content>
+
+  <!-- Search -->
+  <ion-grid style="padding:0px;background: white;">
+    <ion-row style="padding:0px;">
+      <ion-col col-10>
+        <ion-searchbar (ionInput)="MachinesListCount($event)" [(ngModel)]="MLSrchText"
+          placeholder="Enter Serial # or Model or Brand" style="padding: 0px;"></ion-searchbar>
+      </ion-col>
+      <ion-col col style="display: flex;">
+        <span style="margin: auto;font-size: 12px;color: #4c565a;font-weight: bold;">Count:
+          {{MachineDetailsList.length}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- <ion-list> -->
+  <div style="height: 86vh; overflow-y: scroll;box-shadow: 1px 1px 1px 3px lightgray;margin-top: 3px;"
+    *ngIf="MachineDetailsList.length!=0">
+
+    <ion-card style="border: 1px solid lightgray;padding: 5px;" *ngFor="let item of MachineDetailsList"
+      (click)="SelectedMachine(item)">
+      <ion-grid style="padding:0px">
+        <ion-row style="padding:5px">
+          <ion-col style="padding:3px">
+            <span>{{item.Product_SerialNumber}}</span>
+          </ion-col>
+          <ion-col style="padding:3px">
+            <span style="display: block; text-align:right">{{item.ModelData}}</span>
+          </ion-col>
+        </ion-row>
+        <ion-row style="padding:5px;color:#909090">
+          <ion-col style="padding:3px">
+            <span>{{item.ProductTypeData}}</span>
+          </ion-col>
+          <!-- <ion-col col-8 style="padding:3px">
+              <span style="display: block;text-align:right">{{item.ProductTypeData}}</span>
+            </ion-col> -->
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+
+  <div *ngIf="Notfoundmsg">
+    <span
+      style="border: 1px solid lightgray;display: block;padding: 3%;margin: 10px;font-size: 21px;text-align: center;">No
+      Records Found</span>
+  </div>
+
+</ion-content>

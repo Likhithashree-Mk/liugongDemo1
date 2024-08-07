@@ -1,0 +1,51 @@
+.alert-button {
+  color: white !important;
+  width: 45%;
+  background: #4c565a !important;
+}
+
+.alert-md .alert-input:focus {
+  margin-bottom: 4px;
+  border-bottom: 2px solid #4c565a;
+}
+
+.col, .grid {
+  padding: 0px !important;
+}
+
+.SpnLableText {
+  display: block;
+  color: #4c565a;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.InputControle {
+  width: 100%;
+  border: 1px solid lightgray;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.list-md .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child {
+  border-bottom-color: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.list {
+  margin: auto !important;
+}
+
+.item-inner {
+  border: 0px !important;
+}
+
+.toolbar-ios{
+  padding-top:env(safe-area-inset-top);
+}
+/*# sourceMappingURL=app.css.map */
+
+

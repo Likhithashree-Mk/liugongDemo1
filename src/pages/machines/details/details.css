@@ -1,0 +1,16 @@
+page-details .toolbar-background-md {
+  background: #4c565a;
+}
+
+page-details .toolbar-title-md {
+  color: white;
+}
+
+page-details .list-md {
+  margin: 0px;
+}
+
+page-details a ion-label, page-details button ion-label {
+  pointer-events: painted;
+}
+/*# sourceMappingURL=details.css.map */

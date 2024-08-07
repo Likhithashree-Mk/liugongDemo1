@@ -1,0 +1,16 @@
+page-products .toolbar-background-md {
+  background: #4c565a;
+}
+
+page-products .toolbar-title-md {
+  color: white;
+}
+
+page-products .searchbar-md {
+  background: lightgray;
+}
+
+page-products .list-md .item-block .item-inner {
+  border: 0px;
+}
+/*# sourceMappingURL=products.css.map */

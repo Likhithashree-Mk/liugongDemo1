@@ -1,0 +1,486 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content>
+
+  <!-- <ion-card style="margin-top: 5%;" *ngIf="global.FeedbackList.length>0">
+    <ion-card-content>
+      The complaint Reg # <span style="color: blue;">{{global.FeedbackList[0].ServiceRequestNumber}}</span>
+      dated <span style="color: blue;">{{global.FeedbackList[0].ServiceRequestDate | date:"dd-MMM-yyyy"}}</span>
+      Time <span style="color: blue;">{{global.FeedbackList[0].ServiceRequestDate | date:"HH:mm"}}</span>
+      description <span style="color: blue;">{{global.FeedbackList[0].CallDescription}}</span>
+      related to <span style="color: blue;">{{global.FeedbackList[0].CallType}}</span>
+      has been resolved by <span style="color: blue;">{{global.FeedbackList[0].Caseowner}}</span>
+    </ion-card-content>
+  </ion-card> -->
+
+  <!-- <ion-grid style="margin-top: 6%;">
+    <ion-row>
+      <ion-col col-8 style="display: flex;">
+        <span style="margin: auto;margin-left: 10px;">Are you satisfied with the solution provided ?</span>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item>
+          <ion-label>{{IsNegativeFB?"Yes":"No"}}</ion-label>
+          <ion-toggle checked="false" [(ngModel)]="IsNegativeFB"></ion-toggle>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+
+
+  <!-- <div style="margin-left: 10px;margin-top: 6%;">
+    <b>Comments</b><br>
+    <textarea [(ngModel)]="FeedbackDescription"
+      style="border: 1px solid lightgray;width: 99%;border-radius: 5px;height: 81px;"></textarea>
+  </div> -->
+
+  <!-- <ion-card style="margin-top: 6%;border-radius: 10px;">
+    <ion-card-header>
+      Professional Behaviour <span style="color: red;font-weight: bold;">*</span>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          
+           <ion-col col-1 style="display: flex;">
+            <ion-icon name="remove-circle" (click)="ProfessionalBehaviourRatingRestClick()" class="IconRemoveFeedback">
+            </ion-icon>
+          </ion-col> 
+
+           <ion-col col>
+            <form [formGroup]="ProfessionalBehaviourForm">
+              <ionic3-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline"
+                activeColor="{{ProfessionalBehaviourColor}}" defaultColor="{{ProfessionalBehaviourColor}}"
+                readonly="false" fontSize="32px" (ratingChanged)="ProfessionalBehaviourRatingChange($event)"
+                formControlName="starRating">
+              </ionic3-star-rating>
+            </form> 
+          </ion-col> 
+          
+           <ion-col col-4 style="text-align: right;">
+            <span class="SpnFeedbackValue"
+              [style.background]="ProfessionalBehaviourColor">{{ProfessionalBehaviourText}}</span>
+          </ion-col> 
+
+        </ion-row>
+         <ion-row style="margin-top: 10px;">
+          <ion-col col-6 style="display: flex;">
+            <span style="margin: auto;margin-left: 3px;">Rating Reason</span>
+          </ion-col>
+          <ion-col col-6>
+            <select class="InputControle" [(ngModel)]="ProfessionalBehaviourRatingReasonValue"
+              [disabled]="ProfessionalBehaviourText=='Not Rated' || ProfessionalBehaviourText=='Excellent' || ProfessionalBehaviourText=='Outstanding' ">
+              <option value="0">select</option>
+              <option value="{{item.ID}}" *ngFor="let item of ProfessionalBehaviourRatingReasonData">{{item.Name}} </option>
+            </select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div style="margin-left: 3px;margin-top: 10px;">
+              <span>Remaks</span><br>
+              <textarea [(ngModel)]="ProfessionalBehaviourRemarks"
+                style="border: 1px solid lightgray;width: 99%;border-radius: 5px;height: 81px;"></textarea>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card> -->
+
+  <!-- <ion-card style="margin-top: 6%;border-radius: 10px;">
+    <ion-card-header>
+      Employee Skill (FTF) <span style="color: red;font-weight: bold;">*</span>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-1 style="display: flex;">
+            <ion-icon name="remove-circle" (click)="EmployeeSkillFormRatingRestClick()" class="IconRemoveFeedback">
+            </ion-icon>
+          </ion-col>
+          <ion-col col>
+            <form [formGroup]="EmployeeSkillForm">
+              <ionic3-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline"
+                activeColor="{{EmployeeSkillColor}}" defaultColor="{{EmployeeSkillColor}}" readonly="false"
+                fontSize="32px" (ratingChanged)="EmployeeSkillRatingChange($event)" formControlName="starRating">
+              </ionic3-star-rating>
+            </form>
+          </ion-col>
+          <ion-col col-4 style="text-align: right;">
+            <span class="SpnFeedbackValue" [style.background]="EmployeeSkillColor">{{EmployeeSkillText}}</span>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 10px;">
+          <ion-col col-6 style="display: flex;">
+            <span style="margin: auto;margin-left: 3px;">Rating Reason</span>
+          </ion-col>
+          <ion-col col-6>
+            <select class="InputControle" [(ngModel)]="EmployeeSkillRatingReasonValue"
+              [disabled]="EmployeeSkillText=='Not Rated' || EmployeeSkillText=='Excellent' || EmployeeSkillText=='Outstanding' ">
+              <option value="0">select</option>
+              <option value="{{item.ID}}" *ngFor="let item of EmployeeSkillRatingReasonData">{{item.Name}} </option>
+            </select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div style="margin-left: 3px;margin-top: 10px;">
+              <span>Remaks</span><br>
+              <textarea [(ngModel)]="EmployeeSkillRemarks"
+                style="border: 1px solid lightgray;width: 99%;border-radius: 5px;height: 81px;"></textarea>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="margin-top: 6%;border-radius: 10px;">
+    <ion-card-header>
+      Part Support <span style="color: red;font-weight: bold;">*</span>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-1 style="display: flex;">
+            <ion-icon name="remove-circle" (click)="PartSupportRatingRestClick()" class="IconRemoveFeedback">
+            </ion-icon>
+          </ion-col>
+          <ion-col col>
+            <form [formGroup]="PartSupportForm">
+              <ionic3-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline"
+                activeColor="{{PartSupportColor}}" defaultColor="{{PartSupportColor}}" readonly="false" fontSize="32px"
+                (ratingChanged)="PartSupportRatingChange($event)" formControlName="starRating">
+              </ionic3-star-rating>
+            </form>
+          </ion-col>
+          <ion-col col-4 style="text-align: right;">
+            <span class="SpnFeedbackValue" [style.background]="PartSupportColor">{{PartSupportText}}</span>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 10px;">
+          <ion-col col-6 style="display: flex;">
+            <span style="margin: auto;margin-left: 3px;">Rating Reason</span>
+          </ion-col>
+          <ion-col col-6>
+            <select class="InputControle" [(ngModel)]="PartSupportRatingReasonValue"
+              [disabled]="PartSupportText=='Not Rated' || PartSupportText=='Excellent' || PartSupportText=='Outstanding' ">
+              <option value="0">select</option>
+              <option value="{{item.ID}}" *ngFor="let item of PartSupportRatingReasonData">{{item.Name}} </option>
+            </select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div style="margin-left: 3px;margin-top: 10px;">
+              <span>Remaks</span><br>
+              <textarea [(ngModel)]="PartSupportRemarks"
+                style="border: 1px solid lightgray;width: 99%;border-radius: 5px;height: 81px;"></textarea>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="margin-top: 6%;border-radius: 10px;">
+    <ion-card-header>
+      Resolution Time Satisfication (MTTR) <span style="color: red;font-weight: bold;">*</span>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-1 style="display: flex;">
+            <ion-icon name="remove-circle" (click)="ResolutionTimeRatingRestClick()" class="IconRemoveFeedback">
+            </ion-icon>
+          </ion-col>
+          <ion-col col>
+            <form [formGroup]="ResolutionTimeForm">
+              <ionic3-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline"
+                activeColor="{{ResolutionTimeColor}}" defaultColor="{{ResolutionTimeColor}}" readonly="false"
+                fontSize="32px" (ratingChanged)="ResolutionTimeRatingChange($event)" formControlName="starRating">
+              </ionic3-star-rating>
+            </form>
+          </ion-col>
+          <ion-col col-4 style="text-align: right;">
+            <span class="SpnFeedbackValue" [style.background]="ResolutionTimeColor">{{ResolutionTimeText}}</span>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 10px;">
+          <ion-col col-6 style="display: flex;">
+            <span style="margin: auto;margin-left: 3px;">Rating Reason</span>
+          </ion-col>
+          <ion-col col-6>
+            <select class="InputControle" [(ngModel)]="ResolutionTimeRatingReasonValue"
+              [disabled]="ResolutionTimeText=='Not Rated' || ResolutionTimeText=='Excellent' || ResolutionTimeText=='Outstanding' ">
+              <option value="0">select</option>
+              <option value="{{item.ID}}" *ngFor="let item of ResolutionTimeRatingReasonData">{{item.Name}} </option>
+            </select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div style="margin-left: 3px;margin-top: 10px;">
+              <span>Remaks</span><br>
+              <textarea [(ngModel)]="ResolutionTimeRemarks"
+                style="border: 1px solid lightgray;width: 99%;border-radius: 5px;height: 81px;"></textarea>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="margin-top: 6%;border-radius: 10px;">
+    <ion-card-header>
+      Machine Performance <span style="color: red;font-weight: bold;">*</span>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-1 style="display: flex;">
+            <ion-icon name="remove-circle" (click)="MachinePerformanceRatingRestClick()" class="IconRemoveFeedback">
+            </ion-icon>
+          </ion-col>
+          <ion-col col>
+            <form [formGroup]="MachinePerformanceForm">
+              <ionic3-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline"
+                activeColor="{{MachinePerformanceColor}}" defaultColor="{{MachinePerformanceColor}}" readonly="false"
+                fontSize="32px" (ratingChanged)="MachinePerformanceRatingChange($event)" formControlName="starRating">
+              </ionic3-star-rating>
+            </form>
+          </ion-col>
+          <ion-col col-4 style="text-align: right;">
+            <span class="SpnFeedbackValue"
+              [style.background]="MachinePerformanceColor">{{MachinePerformanceText}}</span>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 10px;">
+          <ion-col col-6 style="display: flex;">
+            <span style="margin: auto;margin-left: 3px;">Rating Reason</span>
+          </ion-col>
+          <ion-col col-6>
+            <select class="InputControle" [(ngModel)]="MachinePerformanceRatingReasonValue"
+              [disabled]="MachinePerformanceText=='Not Rated' || MachinePerformanceText=='Excellent' || MachinePerformanceText=='Outstanding' ">
+              <option value="0">select</option>
+              <option value="{{item.ID}}" *ngFor="let item of MachinePerformanceRatingReasonData">{{item.Name}} </option>
+            </select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div style="margin-left: 3px;margin-top: 10px;">
+              <span>Remaks</span><br>
+              <textarea [(ngModel)]="MachinePerformanceRemarks"
+                style="border: 1px solid lightgray;width: 99%;border-radius: 5px;height: 81px;"></textarea>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card> -->
+
+
+  <h6 *ngIf="(FeedbackAllQueueList.length == 0) || (FeedbacktabRequired==2 && FeedbackSrQueueList.length == 0)"
+    style="margin: auto;margin-top:15px;text-align: center;color:#909090">You
+    have no service to give feedback</h6>
+
+  <ion-grid *ngFor="let fql of FeedbackAllQueueList;index as f;first as isFirst" style="padding: 0;">
+
+    <ion-card style="margin-top: 6%;border-radius: 5px;" *ngIf="isFirst && FeedbacktabRequired==1">
+      <ion-card-header class="ClsSrBg" [ngClass]="{ClsJcBg: f>=FeedbackSrQueueList.length}">
+        <ion-grid>
+          <ion-row style="padding-bottom: 10px;">
+            <ion-col col-10 style="overflow: hidden;text-overflow: ellipsis;">{{fql.CustomerComplaint}} </ion-col>
+            <ion-col col-2 style="text-align: end;">
+            </ion-col>
+          </ion-row>
+          <!-- <ion-row [ngClass]="{ClsSrHide: fql.ServiceRequest_ID==0}"> -->
+          <ion-row [ngClass]="{ClsSrHide: f>=FeedbackSrQueueList.length}">
+            <ion-col col-6>
+              <span style="color:#fff;font-size:10px;">SR Number : </span><label
+                style="font-size:10px;">{{fql.ServiceRequestNumber}}</label>
+            </ion-col>
+            <ion-col col-6 style="text-align: end;">
+              <span style="color:#fff;font-size:10px;">SR Date : </span><label
+                style="font-size:10px;">{{fql.ServiceRequestDate | date:'dd-MMM-yyyy HH:mm'}}</label>
+            </ion-col>
+          </ion-row>
+          <!-- <ion-row [ngClass]="{ClsSrHide: fql.JobCardID==0}"> -->
+          <ion-row [ngClass]="{ClsSrHide: f<FeedbackSrQueueList.length}">
+            <ion-col col-6>
+              <span style="color:#fff;font-size:10px;">JC Number : </span><label
+                style="font-size:10px;">{{fql.JobCardNumber}}</label>
+            </ion-col>
+            <ion-col col-6 style="text-align: end;">
+              <span style="color:#fff;font-size:10px;">JC Date : </span><label style="font-size:10px;">{{fql.JobCardDate
+                | date:'dd-MMM-yyyy HH:mm'}}</label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-card-header>
+      <ion-card-content style="padding:0 !important;">
+        <ion-grid>
+          <ion-row style="padding:5px !important">
+            <ion-col>
+              <div style="display: flex;margin-top: 15px;" *ngIf="IsNegativefbValue">
+                <div class="ClsRatingBox" id="IDRating" *ngFor="let fb of FeedbackDisplay;index as i"
+                  [ngClass]="{ClsBorderLeft : i==0,ClsSelectedRating : (i+1==this.activerating)}"
+                  (click)="RatingClick(fb)">
+                  <label>{{fb.Rating}}</label>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row style="padding:5px !important;margin-top: 15px !important;">
+            <ion-col col-8>
+              <span style="color:#909090">Are You Satisfied With The Solution Provided ?</span>
+            </ion-col>
+            <ion-col col-1>
+              <ion-label style="margin:0px !important">{{IsNegativefbValue?"Yes":"No"}}</ion-label>
+            </ion-col>
+            <ion-col col-3 style="margin-top:-8px">
+              <!-- <ion-checkbox color="dark" style="margin-top:6px" [(ngModel)]="IsNegativefbValue"
+                (ionChange)="NegativeFbChange(IsNegativefbValue)"></ion-checkbox> -->
+              <ion-item>
+                <ion-toggle checked="false" [(ngModel)]="IsNegativefbValue"
+                  (ionChange)="NegativeFbChange(IsNegativefbValue)"></ion-toggle>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row style="padding:5px !important;margin-top: 20px !important;">
+            <ion-col>
+              <textarea rows="5" cols="20" placeholder="Customer Feedback" [(ngModel)]="EnteredComments"
+                style="border: 1px solid lightgray;width: 99%;border-radius: 5px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card style="margin-top: 6%;border-radius: 5px;"
+      *ngIf="isFirst && FeedbacktabRequired==2 && f<FeedbackSrQueueList.length">
+      <ion-card-header class="ClsSrBg">
+        <ion-grid>
+          <ion-row style="padding-bottom: 10px;">
+            <ion-col col-10 style="overflow: hidden;text-overflow: ellipsis;">{{fql.CustomerComplaint}} </ion-col>
+            <ion-col col-2 style="text-align: end;">
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              <span style="color:#fff;font-size:10px;">SR Number : </span><label
+                style="font-size:10px;">{{fql.ServiceRequestNumber}}</label>
+            </ion-col>
+            <ion-col col-6 style="text-align: end;">
+              <span style="color:#fff;font-size:10px;">SR Date : </span><label
+                style="font-size:10px;">{{fql.ServiceRequestDate | date:'dd-MMM-yyyy HH:mm'}}</label>
+            </ion-col>
+          </ion-row>
+          <ion-row [ngClass]="{ClsSrHide: fql.JobCardID==0}">
+            <ion-col col-6>
+              <span style="color:#fff;font-size:10px;">JC Number : </span><label
+                style="font-size:10px;">{{fql.JobCardNumber}}</label>
+            </ion-col>
+            <ion-col col-6 style="text-align: end;">
+              <span style="color:#fff;font-size:10px;">JC Date : </span><label
+                style="font-size:10px;">{{fql.JobCardDate | date:'dd-MMM-yyyy HH:mm'}}</label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-header>
+      <ion-card-content style="padding:0 !important;">
+        <ion-grid>
+          <ion-row style="padding:5px !important">
+            <ion-col>
+              <div style="display: flex;margin-top: 15px;" *ngIf="IsNegativefbValue">
+                <div class="ClsRatingBox" id="IDRating" *ngFor="let fb of FeedbackDisplay;index as i"
+                  [ngClass]="{ClsBorderLeft : i==0,ClsSelectedRating : (i+1==this.activerating)}"
+                  (click)="RatingClick(fb)">
+                  <label>{{fb.Rating}}</label>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row style="padding:5px !important;margin-top: 15px !important;">
+            <ion-col col-8>
+              <span style="color:#909090">Are you satisfied with the solution provided ?</span>
+            </ion-col>
+            <ion-col col-1>
+              <ion-label style="margin-top:1px">{{IsNegativefbValue?"Yes":"No"}}</ion-label>
+            </ion-col>
+            <ion-col col-3 style="margin-top:-8px">
+              <!-- <ion-checkbox color="dark" style="margin-top:6px" [(ngModel)]="IsNegativefbValue"
+                (ionChange)="NegativeFbChange(IsNegativefbValue)"></ion-checkbox> -->
+              <ion-item>
+                <ion-toggle checked="false" [(ngModel)]="IsNegativefbValue"
+                  (ionChange)="NegativeFbChange(IsNegativefbValue)"></ion-toggle>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row style="padding:5px !important;margin-top: 20px !important;">
+            <ion-col>
+              <textarea rows="5" cols="20" placeholder="Customer feedback" [(ngModel)]="EnteredComments"
+                style="border: 1px solid lightgray;width: 99%;border-radius: 5px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+
+    <!-- <ion-grid style="margin-top: 6%;margin-bottom: 15px;" *ngIf="isFirst">
+    <ion-row> -->
+    <!-- <ion-col style="display: flex;">
+        <button ion-button style="margin: auto;background:#023573;"
+          (click)="FeedbackSubmitClick(global.FeedbackList[0].ServiceRequestNumber,0)">Submit</button>
+      </ion-col> -->
+    <!-- <ion-col style="display: flex;">
+        <button ion-button style="margin: auto;background:#f36e20;"
+          (click)="EachFeedbackSubmitClick(fql)">Submit</button>
+      </ion-col>
+      <ion-col style="display: flex;">
+        <button ion-button style="margin: auto;background:#023573;"
+          (click)="FeedbackSubmitClick(global.FeedbackList[0].ServiceRequestNumber,1)">Ignore</button>
+      </ion-col>
+      <ion-col style="display: flex;">
+        <button ion-button style="margin: auto;background:#023573;" (click)="FeedbackCancelClick()">Cancel</button>
+      </ion-col> -->
+    <!-- </ion-row>
+  </ion-grid> -->
+
+
+  </ion-grid>
+
+
+  <!-- <span style="color:red;display: block;padding: 10px;">*Required Information</span> -->
+
+</ion-content>
+
+
+<ion-footer style="background:  #023573;">
+  <ion-grid style="position:absolute;bottom: 0;left: 0;">
+    <ion-row>
+      <ion-col col-4 style="padding:0 !important;border-right: 1px solid #fff;">
+        <ion-toolbar (click)="EachFeedbackSubmitClick(FeedbackAllQueueList[0])">
+          <ion-title>Submit</ion-title>
+        </ion-toolbar>
+      </ion-col>
+      <ion-col col-4 style="padding:0 !important;border-right: 1px solid #fff;">
+        <ion-toolbar (click)="IgnoreClick(FeedbackAllQueueList[0])">
+          <ion-title>Ignore</ion-title>
+        </ion-toolbar>
+      </ion-col>
+      <ion-col col-4 style="padding:0 !important">
+        <ion-toolbar (click)="FeedbackCancelClick()">
+          <ion-title>Cancel</ion-title>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

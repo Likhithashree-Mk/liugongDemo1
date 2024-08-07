@@ -1,0 +1,18 @@
+page-details {
+
+    .toolbar-background-md {
+        background:  #023573;
+    }
+    .toolbar-title-md{
+        color: white;
+    }
+
+    .list-md{
+        margin: 0px;
+    }
+
+    a ion-label, button ion-label{
+        pointer-events: painted;
+    }
+
+}

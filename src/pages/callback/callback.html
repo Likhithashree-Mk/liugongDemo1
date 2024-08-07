@@ -1,0 +1,95 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content>
+
+  <!-- <div [hidden]="global.UserDetails.length==1" style="border: 1px solid lightgray;margin: 10px;padding: 10px;">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 style="display: flex;">
+          <span style="margin: auto;margin-left: 3px;">Customer</span>
+        </ion-col>
+        <ion-col col-6>
+          <select (change)="PartyChange($event)" class="InputControle">
+            <option value="-1">select</option>
+            <option value="{{c.Party}}" *ngFor="let c of global.UserDetails">{{c.Party_Name + " ("+c.Party_code+")"}}
+            </option>
+          </select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> -->
+
+  <ion-list radio-group [(ngModel)]="CallBackValues" (ionChange)="CallbackChange(CallBackValues)">
+
+    <ion-item>
+      <ion-label>Within 10 mins</ion-label>
+      <ion-radio value="1"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Within 30 mins</ion-label>
+      <ion-radio value="2"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Within 1 hour</ion-label>
+      <ion-radio value="3"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Choose Date and Time</ion-label>
+      <ion-radio value="4"></ion-radio>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-grid style="border-bottom: 1px solid lightgray;" *ngIf="!CallbackDateDisable">
+
+    <ion-row style="padding: 5px;">
+      <ion-col col-6 style="display: flex;">
+        <span style="margin: auto;margin-left: 12px;font-size: 17px;">Date</span>
+      </ion-col>
+      <ion-col col-6>
+        <input type="date" min="{{TodaysDate}}" [(ngModel)]="CallBackDate" [disabled]="CallbackDateDisable"
+          class="InputControle">
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="padding: 5px;margin-bottom: 15px;">
+      <ion-col col-6 style="display: flex;">
+        <span style="margin: auto;margin-left: 12px;font-size: 17px;">Time</span>
+      </ion-col>
+      <ion-col col-6>
+        <input type="time" [(ngModel)]="CallBackTime" [disabled]="!CallBackDate!=''"
+          class="InputControle">
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-navbar color="nav">
+
+    <ion-grid style="padding: 0px;">
+      <ion-row>
+        <ion-col col-6 style="border-right: 3px solid white;padding: 0px;">
+          <div align="center">
+            <button ion-button class="clsFooterBtn" color="nav" (click)="CallbackCancelClick()">Cancel</button>
+          </div>
+        </ion-col>
+        <ion-col col-6 style="padding: 0px;">
+          <div align="center">
+            <button ion-button class="clsFooterBtn" color="nav" (click)="CallbackSubmitClick()">Submit</button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-navbar>
+
+</ion-footer>

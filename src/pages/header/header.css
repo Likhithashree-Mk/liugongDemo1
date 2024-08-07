@@ -1,0 +1,47 @@
+page-header .back-button.show-back-button {
+  display: none !important;
+}
+
+page-header .icon {
+  font-size: 2.7em !important;
+  color: white;
+}
+
+page-header .grid, page-header .col {
+  padding: 0px !important;
+}
+
+page-header .SpnTitle {
+  position: absolute;
+  left: 150px;
+  color: white;
+  font-size: 1.6em;
+  top: 14px;
+  font-weight: bold;
+  width: 90%;
+  overflow: hidden;
+}
+
+page-header .toolbar-background-md {
+  clear: both;
+}
+
+page-header .toolbar-background {
+  background: #4c565a !important;
+}
+
+page-header #DivHeaderSideMenuContainer {
+  position: absolute;
+  border: 1px solid gray;
+  background: lightgray;
+  top: 55px;
+  width: auto;
+  height: auto;
+  -webkit-box-shadow: 1px 1px 8px -1px gray;
+          box-shadow: 1px 1px 8px -1px gray;
+}
+
+page-header .item {
+  background: lightgray;
+}
+/*# sourceMappingURL=header.css.map */
